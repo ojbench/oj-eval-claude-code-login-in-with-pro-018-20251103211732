@@ -25,10 +25,10 @@ extern std::map<std::string, ExprType> primitives;
 extern std::map<std::string, ExprType> reserved_words;
 
 /**
- * @brief Default parse method (should be overridden by subclasses)
+ * @brief Syntax wrapper parse method - delegates to underlying SyntaxBase
  */
 Expr Syntax::parse(Assoc &env) {
-    throw RuntimeError("Unimplemented parse method");
+    return ptr->parse(env);
 }
 
 Expr Number::parse(Assoc &env) {
